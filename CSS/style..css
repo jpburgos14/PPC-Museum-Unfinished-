@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* General Settings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary:#ffd700;
+
+}
+body{
+    position: relative;
+    background-color: #000;
+    font-family: 'Roboto',sans-serif;
+}
+
+/* Header */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+
+.logo{
+    font-family: 'Great Vibes',cursive;
+    font-size: 3rm;
+    color: #ffff;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.nav{
+    display: flex;
+}
+.nav li{
+    position: relative;
+    list-style: none;
+    margin: 0 20px;
+}
+
+.nav li a{
+    color: #ffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+.nav li .nav-btn::after{
+    position: absolute;
+    content: "";
+    bottom: -10px ;
+    left: 50%;
+    transform: translateX(20%);
+    height: 3px;
+    background: var(--primary);
+    transition: 0.5s;
+}
+.nav li .nav-btn:hover:after{
+    width: 50%;
+}
+.nav li .nav-btn:hover{
+    color: var(--primary);
+}
+
+.nav .nav-btn active{
+    color: var(--primary);
+}
+.nav .nav-btn.active::after{
+    width: 50%;
+}
+
+.ctgry{
+    position: relative;
+    color:#ffff ;
+    font-size: 1.8em;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctgry .number {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #000;
+    font-size: 0.5em;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu{
+    display: none;
+    position: relative;
+    transition: 0.5s;
+}
+
+/* Hero Banner Section */
+.banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh !important;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+    background: #111;
+    perspective: 1000px;
+    transform-style:preserve-3d ;
+    z-index: 800;
+
+}
+.banner::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url();
+    background-size: cover;
+    background-position: center ;
+}
+
+.banner .content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner .content h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 8em;
+    line-height: 1em;
+}
+.banner .content h4{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 3.5em;
+    line-height: 1em;
+
+}
+.banner .content p{
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+
+}
+
+.banner .content .content-btn{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    background: radial-gradient(
+        ellipse farthest-corner at right bottom,
+        #fedb37 0%,
+        #fdb931 8%,
+        #946c28 30%,
+        #876b29 40%,
+        transparent 80%
+    ),
+    radial-gradient(
+    ellipse farthest-corner at left top,
+    #ffffff 0%,
+    #ffffac 8%,
+    #d1b464 25%,
+    #5d4a1f 62.5%,
+    #5d4a1f 100%
+
+    );
+}
+
+.banner .content .content-btn:hover{
+    background: radial-gradient(
+        ellipse farthest-corner at left top ,
+        #fedb37 0%,
+        #fdb931 8%,
+        #946c28 30%,
+        #876b29 40%,
+        transparent 80%
+    ),
+    radial-gradient(
+    ellipse farthest-corner at right bottom,
+    #ffffff 0%,
+    #ffffac 8%,
+    #d1b464 25%,
+    #5d4a1f 62.5%,
+    #5d4a1f 100%
+
+    );
+}
+
+
+/* Spinning 3D Carousel */
+#drag-container
+,#spin-container{
+    position: relative;
+    display: flex;
+    margin: auto;
+    transform-style: preserve-3d;
+    transform: rotateX('-100deg')
+}
+
+#drag-container img{
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 #ffff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+    cursor: pointer;
+}
+
+#drag-container img:hover{
+    box-shadow: 0 0 15px #fffd;
+    -webkit-box-reflect: below 10px linear-gradient(transparent,transparent,#0007);
+    
+}
+
+#drag-container h1{
+    font-size: 5em;
+    color:#ffffff;
+    line-height: 1em;
+    text-align:center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotateX('90deg');
+}
+
+#ground{
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotateX('90deg');
+}
+
+@keyframes spin {
+    from{
+        transform: rotateY('0deg');
+    }
+    to{
+        transform: rotateY('360deg');
+    }
+}
+
+@keyframes spinRevert {
+    from{
+        transform: rotateY('360deg');
+    }
+    to{
+        transform: rotateY('0deg');
+    }
+}
